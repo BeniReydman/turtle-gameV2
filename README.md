@@ -9,7 +9,7 @@
 6. EXIT
 
 ## Example Run
-![Example Run](Images/TestRun.png)
+![Example Run](Images/TestRun.PNG)
 
 ## Tests
-![Tests](Images/Tests.png)
+![Tests](Images/Tests.PNG)
