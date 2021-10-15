@@ -21,14 +21,14 @@ namespace TurtleGame.GameLogic
         }
 
         // Returns CardinalDirection given a char
-        public CardinalDirection ParseCardinalDirectionOrNull(char c)
+        public CardinalDirection ParseCardinalDirectionOrNull(string c)
         {
             switch (c)
             {
-                case 'N': return new CardinalDirection { CurrDirection = Direction.NORTH };
-                case 'E': return new CardinalDirection { CurrDirection = Direction.EAST };
-                case 'S': return new CardinalDirection { CurrDirection = Direction.SOUTH };
-                case 'W': return new CardinalDirection { CurrDirection = Direction.WEST };
+                case "NORTH": return new CardinalDirection { CurrDirection = Direction.NORTH };
+                case "EAST": return new CardinalDirection { CurrDirection = Direction.EAST };
+                case "SOUTH": return new CardinalDirection { CurrDirection = Direction.SOUTH };
+                case "WEST": return new CardinalDirection { CurrDirection = Direction.WEST };
                 default: return null;
             }
         }
@@ -46,8 +46,8 @@ namespace TurtleGame.GameLogic
 
                 int x = int.Parse(items[0]);
                 int y = int.Parse(items[1]);
-                char c = char.Parse(items[2]);
-                CardinalDirection CD = ParseCardinalDirectionOrNull(c);
+                string direction = items[2];
+                CardinalDirection CD = ParseCardinalDirectionOrNull(direction);
                 if (CD == null)
                     return null;  // invalid args
 
