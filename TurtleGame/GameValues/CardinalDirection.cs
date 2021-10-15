@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TurtleGame.Values
+﻿namespace TurtleGame.Values
 {
     public enum Direction
     {
@@ -18,7 +14,7 @@ namespace TurtleGame.Values
     }
 
     // Value Proxy to be used for the TurtleGame ( Overengineered, I was having fun )
-    public struct CardinalDirection
+    public class CardinalDirection
     {
         public Direction CurrDirection { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using TurtleGame.Entities;
+using TurtleGame.GameObjects;
 using TurtleGame.Values;
 
 namespace TurtleGame.UnitTests.EntityTests
@@ -13,7 +14,7 @@ namespace TurtleGame.UnitTests.EntityTests
         public void Setup()
         {
             // Default
-            entity = new Entity(new Values.Coords { X = 1, Y = 1 }, new Values.CardinalDirection { CurrDirection = Values.Direction.NORTH });
+            entity = new Entity(new Table(null, null), new Values.Coords { X = 1, Y = 1 }, new Values.CardinalDirection { CurrDirection = Values.Direction.NORTH });
         }
 
         [Test]
@@ -77,18 +78,18 @@ namespace TurtleGame.UnitTests.EntityTests
         public void CannotMoveForward_FacingNorth_IfAtEdgeOfTable()
         {
             entity.CardinalDirection.CurrDirection = Direction.NORTH;
-            entity.Coords.Y = Tabletop.HEIGHT - 1;
+            entity.Coords.Y = entity.Table.Width - 1;
             entity.Move();
-            Assert.That(entity.Coords.Y, Is.EqualTo(Tabletop.HEIGHT - 1));
+            Assert.That(entity.Coords.Y, Is.EqualTo(entity.Table.Width - 1));
         }
 
         [Test]
         public void CannotMoveForward_FacingEast_IfAtEdgeOfTable()
         {
             entity.CardinalDirection.CurrDirection = Direction.EAST;
-            entity.Coords.X = Tabletop.WIDTH - 1;
+            entity.Coords.X = entity.Table.Length - 1;
             entity.Move();
-            Assert.That(entity.Coords.X, Is.EqualTo(Tabletop.WIDTH - 1));
+            Assert.That(entity.Coords.X, Is.EqualTo(entity.Table.Length - 1));
         }
 
         [Test]
